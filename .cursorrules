@@ -1,0 +1,283 @@
+# FreeWithBTC - Streamlit Bitcoin Life Improvement Calculator
+
+## Project Overview
+**"Your life gets better on a Bitcoin standard"** - A Bitcoin life improvement calculator with three fundamental pillars:
+1. **"There Is No Second Best"** - Education proving Bitcoin superiority
+2. **"Life Gets Cheaper and Better"** - Purchasing power improvement calculator  
+3. **"Escape the Rat Race"** - Financial freedom timeline calculator
+
+**Core Technology**: Python + Streamlit + Plotly + Session State (privacy-first, no database)
+
+## Technology Stack
+- **Language**: Python 3.8+
+- **Web Framework**: Streamlit (modern web UI)
+- **Charts**: Plotly (interactive visualizations)
+- **Data**: Pandas + NumPy + Session State (privacy-focused)
+- **Storage**: Session-based isolation (no database, no user accounts)
+- **Deployment**: Streamlit Cloud with auto-deploy from GitHub
+- **Target**: Modular architecture with ~4000 lines across 8 modules
+
+## Strategic Philosophy
+
+### What We ARE:
+✅ **Bitcoin life improvement education platform**
+✅ **Mathematical proof of Bitcoin-only strategy**
+✅ **Purchasing power and freedom calculator**
+✅ **Counter-narrative to "Bitcoin isn't enough" FUD**
+✅ **Self-custody advocacy tool**
+
+### What We're NOT:
+❌ **Another budgeting app with Bitcoin features**
+❌ **Complex envelope budgeting system (that's advanced/optional)**
+❌ **Yield/lending/treasury strategy promoter**
+❌ **Multi-asset portfolio tracker**
+
+## File Structure (Modular Architecture)
+```
+freewithbtc/
+├── streamlit_app.py                 # Main application shell (~300 lines)
+├── modules/
+│   ├── __init__.py                  # Package initialization
+│   ├── landing_page.py              # Fast-loading showcase (~400 lines)
+│   ├── bitcoin_education.py         # Pillar 1: No Second Best (~600 lines)
+│   ├── purchasing_power.py          # Pillar 2: Life Gets Cheaper (~500 lines)
+│   ├── freedom_timeline.py          # Pillar 3: Escape Rat Race (~700 lines)
+│   ├── three_pillars_dashboard.py   # Unified experience (~400 lines)
+│   ├── user_profiles.py             # New/Old Stacker defaults (~200 lines)
+│   ├── envelope_budgeting.py        # Advanced feature (~1500 lines)
+│   ├── data_management.py           # Session state, import/export (~400 lines)
+│   └── ui_components.py             # Shared UI helpers (~300 lines)
+├── requirements.txt                 # Streamlit + dependencies
+├── README.md                        # Complete documentation
+└── .cursorrules                     # Development guidelines
+```
+
+## Core Development Rules
+
+### Python Style Guidelines
+- **Functions**: Use `snake_case` for all functions and variables
+- **Classes**: Use `PascalCase` for class names
+- **Constants**: Use `UPPER_CASE` for constants
+- **Docstrings**: Simple one-line docstrings for functions
+- **Comments**: Only when the code isn't self-explanatory
+- **Line length**: Keep under 100 characters
+
+### Session State Guidelines (Privacy-First)
+- **Privacy-First**: Each user gets isolated data in `st.session_state.user_data`
+- **Profile-Based**: New Stacker (0.1 BTC) and Old Stacker (1 BTC) defaults
+- **Three data categories**: profile data, ui state, and optional budgeting data
+- **Integer amounts**: Store satoshis as integers (no decimals)
+- **Text dates**: Store as 'YYYY-MM-DD' strings
+- **No persistence**: All data in session state only
+
+### Streamlit UI Guidelines
+- **Built-in components**: Use st.form, st.columns, st.tabs, st.sidebar
+- **Interactive widgets**: Date inputs, selectboxes, sliders with validation
+- **Data display**: st.dataframe, st.metric, st.plotly_chart
+- **Visual hierarchy**: Clean, Bitcoin-themed design with orange accents
+- **Status indicators**: Color-coded status (🟢 Good, ⚪ Neutral, 🔴 Warning)
+- **Enhanced form patterns**: Real-time validation with immediate feedback
+- **Bitcoin theming**: Use Bitcoin orange (#f7931a) for primary elements
+- **Layout**: Wide layout with responsive columns
+- **Navigation**: Sidebar with three pillars navigation
+- **Error handling**: Use st.error, st.warning, st.success for user feedback
+
+### Mobile-Responsive Guidelines
+- **Mobile detection**: Use `is_mobile_layout()` function checking `st.session_state.mobile_mode`
+- **Responsive columns**: `get_responsive_columns(desktop_cols)` for dynamic adjustment
+- **Mobile metrics**: `mobile_friendly_metrics()` for stacked metric display
+- **Mobile headers**: `mobile_responsive_header(text, level)` for appropriate sizing
+- **Touch-friendly buttons**: Full-width buttons with better spacing on mobile
+- **Mobile charts**: Stack vertically, horizontal legends below charts
+- **Single codebase**: Same functionality with conditional mobile-optimized presentation
+- **User control**: Sidebar toggle allows switching between desktop and mobile layouts
+
+### Bitcoin-Specific Rules
+- **Satoshis everywhere**: Always work in satoshis (integers)
+- **Sats-only standard**: Only accept satoshi input, no decimal Bitcoin
+- **Display formatting**: Show as "1,000,000 sats" with comma formatting
+- **No decimals**: Avoid floating point for Bitcoin amounts
+- **Input validation**: Ensure positive integers for amounts
+- **Bitcoin-only**: No other assets, cryptocurrencies, or yield products
+- **Self-custody focus**: Promote self-custody, discourage lending/yield
+
+### Landing Page Component (`landing_page.py`)
+- **Purpose**: Fast-loading showcase without typical Streamlit delays
+- **Key Functions**: Static previews, sample calculations, three pillars overview
+- **Content**: Pre-calculated examples, visual appeal, call-to-action
+- **Performance**: Minimal session state, cached calculations, instant load
+- **Sharing**: Optimized for social media previews and quick demos
+- **Design**: Hero section, three pillars preview, sample projections
+- **Navigation**: Clear path to full app experience
+
+### Three Pillars Architecture
+
+#### Pillar 1: Bitcoin Education (`bitcoin_education.py`)
+- **Purpose**: Prove "There Is No Second Best" 
+- **Key Functions**: Asset comparisons, monetary properties, self-custody benefits
+- **Content**: Why Bitcoin-only approach works, risk analysis
+- **Charts**: Bitcoin vs. stocks/gold/fiat over time
+
+#### Pillar 2: Purchasing Power (`purchasing_power.py`)
+- **Purpose**: Demonstrate "Life Gets Cheaper and Better"
+- **Key Functions**: Future purchasing power calculations, expense reduction
+- **Content**: Deflationary benefits of Bitcoin standard living
+- **Charts**: Expense reduction timeline, quality of life improvements
+
+#### Pillar 3: Freedom Timeline (`freedom_timeline.py`)
+- **Purpose**: Show "Escape the Rat Race" mathematics
+- **Key Functions**: Financial freedom timeline, escape velocity calculations
+- **Content**: Years until work-optional, post-freedom sustainability
+- **Charts**: Freedom timeline, stacking rate scenarios
+
+#### Unified Dashboard (`three_pillars_dashboard.py`)
+- **Purpose**: Integrate all three pillars into cohesive experience
+- **Key Functions**: Coordinated calculations, profile-based results
+- **Content**: Smooth transitions between concepts
+- **UI**: Main entry point for users
+
+### User Profile System (`user_profiles.py`)
+
+#### New Stacker Profile (Primary Target)
+- **Bitcoin Holdings**: 0.1 BTC (10,000,000 satoshis)
+- **Monthly DCA**: $500 equivalent in sats
+- **Monthly Expenses**: $4,000 equivalent in sats
+- **Demographics**: Age 30-35, early in Bitcoin journey
+- **Use Case**: Needs conviction building and education
+
+#### Old Stacker Profile (Secondary Target)
+- **Bitcoin Holdings**: 1 BTC (100,000,000 satoshis)
+- **Monthly DCA**: $1,000 equivalent in sats
+- **Monthly Expenses**: $6,000 equivalent in sats
+- **Demographics**: Age 35-40, established Bitcoiner
+- **Use Case**: Wants optimization and advanced features
+
+### Data Management (`data_management.py`)
+- **Session State**: All data in `st.session_state` for privacy
+- **Export/Import**: JSON file-based data portability
+- **Validation**: Imported data validation and error handling
+- **Privacy**: No server-side storage, user controls all data
+- **Cross-device**: Export/import enables device portability
+
+### Bitcoin Models & Calculations
+```python
+BITCOIN_MODELS = {
+    'conservative': {
+        'cycle_years': 4,
+        'growth_rates': [0.5, 1.5, 2.0, 0.8],  # Per year in cycle
+        'floor_multiplier': 0.15
+    },
+    'optimistic': {
+        'cycle_years': 4,
+        'growth_rates': [1.0, 2.0, 3.0, 1.0],
+        'floor_multiplier': 0.2
+    }
+}
+```
+
+### Core Calculation Functions
+- `calculate_bitcoin_future_value()` - Price projections using cycle models
+- `calculate_net_worth_projection()` - User's net worth over time
+- `calculate_purchasing_power_improvement()` - Expense reduction calculations
+- `calculate_financial_freedom_date()` - When holdings cover annual expenses
+- `calculate_escape_velocity()` - Minimum stacking rate for freedom
+
+### Simplicity Rules
+❌ **NO** complex state management beyond st.session_state
+❌ **NO** custom CSS or complex styling (use Bitcoin orange accents only)
+❌ **NO** external APIs or integrations
+❌ **NO** authentication systems or user accounts
+❌ **NO** databases or persistent storage
+❌ **NO** async/await unless truly needed
+❌ **NO** complex JavaScript or custom components
+❌ **NO** other assets or yield products promotion
+
+✅ **YES** to simple Streamlit functions and built-in components
+✅ **YES** to session state for data storage and privacy
+✅ **YES** to Plotly for charts (built-in integration)
+✅ **YES** to pandas DataFrames for data display
+✅ **YES** to responsive layouts with st.columns
+✅ **YES** to Bitcoin-only narrative and self-custody advocacy
+✅ **YES** to modular architecture with clear separation of concerns
+
+### Advanced Features (Optional)
+- **Envelope Budgeting**: Full budgeting system from existing Bitcoin Budget app
+- **Account Management**: Tracked/untracked Bitcoin accounts
+- **Transaction Tracking**: Income/expense tracking with categories
+- **Budget Allocation**: Category-based budgeting with visual indicators
+- **Reports**: Advanced analytics and Bitcoin power law projections
+
+### Error Handling
+- **User errors**: Show st.error with helpful Bitcoin-themed messages
+- **Session state errors**: Catch and initialize missing data gracefully
+- **Input validation**: Check before session state operations
+- **Form validation**: Use Streamlit form submission patterns
+- **Graceful degradation**: App shouldn't crash on bad input
+- **Profile validation**: Ensure profile data integrity
+
+### Performance Guidelines
+- **Personal use app**: Performance is not critical for individual users
+- **Session state is fast**: In-memory operations are instant
+- **Streamlit handles caching**: Use @st.cache_data for expensive calculations
+- **Keep operations simple**: Basic list/dict operations
+- **Pandas for display**: DataFrame operations are efficient enough
+
+### Bitcoin Display Formats
+```python
+def format_sats(satoshis):
+    """Format satoshis for display"""
+    return f"{satoshis:,} sats"
+
+def format_btc(satoshis):
+    """Format as BTC"""
+    btc = satoshis / 100_000_000
+    return f"{btc:.8f} BTC"
+
+def parse_amount_input(text):
+    """Parse user input to satoshis"""
+    # Handle "1000000", "1,000,000", etc.
+```
+
+### Landing Page Guidelines
+- **Fast First Impression**: Load instantly without complex calculations
+- **Pre-calculated Examples**: Show sample results for New/Old Stacker profiles
+- **Visual Appeal**: Bitcoin-themed design with compelling graphics
+- **Clear Value Proposition**: "Your life gets better on a Bitcoin standard"
+- **Three Pillars Preview**: Quick overview of education, purchasing power, freedom
+- **Call-to-Action**: Clear path to try the full calculator
+- **Social Sharing**: Optimized for previews on Twitter, LinkedIn, etc.
+- **Mobile-First**: Looks great on phones where most sharing happens
+- **No Loading Delays**: Avoid complex state initialization on landing
+
+### Development Workflow
+1. **Start with landing page**: Fast-loading showcase and first impression
+2. **Initialize session state**: User data structure for full app
+3. **Build three pillars**: Education, purchasing power, freedom timeline
+4. **Create unified dashboard**: Integrate all three pillars
+5. **Add user profiles**: New/Old Stacker defaults with customization
+6. **Build Streamlit UI**: Responsive design with Bitcoin theming
+7. **Add advanced features**: Optional envelope budgeting for power users
+8. **Test in browser**: Run `streamlit run streamlit_app.py` locally
+9. **Deploy to web**: Auto-deploy to Streamlit Cloud via GitHub
+
+### Success Criteria
+- ✅ **Immediate value**: Users see Bitcoin life improvement projections instantly
+- ✅ **Mobile friendly**: Responsive design works on phones/tablets
+- ✅ **Educational impact**: Users learn why Bitcoin-only approach works
+- ✅ **Emotional engagement**: Users feel excited about their Bitcoin future
+- ✅ **Privacy maintained**: Session-based isolation, no data collection
+- ✅ **Narrative impact**: Counter "Bitcoin isn't enough" FUD effectively
+- ✅ **Modular architecture**: Clean separation of concerns across modules
+- ✅ **Bitcoin-only focus**: No promotion of other assets or yield strategies
+
+### Anti-Patterns to Avoid
+❌ **Setup friction before value**: No complex onboarding before benefits
+❌ **Budgeting-first experience**: Three pillars come first, budgeting is advanced
+❌ **Feature complexity**: Simple, focused experience over feature bloat
+❌ **Multi-step funnels**: Immediate value demonstration
+❌ **"Bitcoin plus X" messaging**: Bitcoin-only narrative
+❌ **Yield promotion**: Self-custody advocacy only
+❌ **Fear-based messaging**: Positive, aspirational tone
+❌ **Over-engineering**: Keep it simple and maintainable
+
+Remember: **We're not building a budgeting app - we're building a Bitcoin life improvement calculator that proves mathematically why life gets better on a Bitcoin standard. The three pillars (education, purchasing power, freedom timeline) are the core experience, with optional advanced budgeting for power users who want it.** 
