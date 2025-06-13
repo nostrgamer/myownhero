@@ -1,283 +1,322 @@
-# FreeWithBTC - Streamlit Bitcoin Life Improvement Calculator
+# MyOwnHero - Personal Empowerment Calculator
 
 ## Project Overview
-**"Your life gets better on a Bitcoin standard"** - A Bitcoin life improvement calculator with three fundamental pillars:
-1. **"There Is No Second Best"** - Education proving Bitcoin superiority
-2. **"Life Gets Cheaper and Better"** - Purchasing power improvement calculator  
-3. **"Escape the Rat Race"** - Financial freedom timeline calculator
+**"Am I the hero of my own life?"** - A sly roundabout path to financial sovereignty through personal empowerment:
+
+1. **"Question Everything"** - Challenge false narratives that keep you trapped
+2. **"Your Time Has Value"** - Realize what you're really trading your life for  
+3. **"A Hero Seeks Understanding"** - Show that time theft is systematic and designed
+4. **"Same Rules for Everyone"** - Discover the power of hard money
+5. **"The Hero's Triumph"** - The Bitcoin revelation
 
 **Core Technology**: Python + Streamlit + Plotly + Session State (privacy-first, no database)
+**Hidden Agenda**: Lead people to Bitcoin through personal empowerment rather than direct Bitcoin messaging
 
 ## Technology Stack
 - **Language**: Python 3.8+
 - **Web Framework**: Streamlit (modern web UI)
 - **Charts**: Plotly (interactive visualizations)
-- **Data**: Pandas + NumPy + Session State (privacy-focused)
+- **Data**: Session State only (privacy-focused)
 - **Storage**: Session-based isolation (no database, no user accounts)
 - **Deployment**: Streamlit Cloud with auto-deploy from GitHub
-- **Target**: Modular architecture with ~4000 lines across 8 modules
+- **Architecture**: Single-file simplicity (~900 lines total)
 
 ## Strategic Philosophy
 
 ### What We ARE:
-✅ **Bitcoin life improvement education platform**
-✅ **Mathematical proof of Bitcoin-only strategy**
-✅ **Purchasing power and freedom calculator**
-✅ **Counter-narrative to "Bitcoin isn't enough" FUD**
-✅ **Self-custody advocacy tool**
+✅ **Personal empowerment platform that questions mainstream narratives**
+✅ **Mathematical proof that traditional financial advice keeps you trapped**
+✅ **Time-value and freedom calculator disguising Bitcoin education**
+✅ **Counter-narrative to "work hard, save fiat, trust institutions" messaging**
+✅ **Gateway drug to Bitcoin through hero's journey metaphor**
+
+### What We APPEAR To Be:
+🎭 **Self-help app focused on personal agency**
+🎭 **Life optimization calculator**
+🎭 **Anti-establishment empowerment tool**
+🎭 **Time-value awareness platform**
 
 ### What We're NOT:
-❌ **Another budgeting app with Bitcoin features**
-❌ **Complex envelope budgeting system (that's advanced/optional)**
-❌ **Yield/lending/treasury strategy promoter**
-❌ **Multi-asset portfolio tracker**
+❌ **Another Bitcoin app (that's the point - we're Trojan horsing it)**
+❌ **Direct Bitcoin promotion (that triggers resistance)**
+❌ **Financial advice platform**
+❌ **Traditional investment education**
 
-## File Structure (Modular Architecture)
+## Simplified File Structure (What We Actually Built)
 ```
-freewithbtc/
-├── streamlit_app.py                 # Main application shell (~300 lines)
-├── modules/
-│   ├── __init__.py                  # Package initialization
-│   ├── landing_page.py              # Fast-loading showcase (~400 lines)
-│   ├── bitcoin_education.py         # Pillar 1: No Second Best (~600 lines)
-│   ├── purchasing_power.py          # Pillar 2: Life Gets Cheaper (~500 lines)
-│   ├── freedom_timeline.py          # Pillar 3: Escape Rat Race (~700 lines)
-│   ├── three_pillars_dashboard.py   # Unified experience (~400 lines)
-│   ├── user_profiles.py             # New/Old Stacker defaults (~200 lines)
-│   ├── envelope_budgeting.py        # Advanced feature (~1500 lines)
-│   ├── data_management.py           # Session state, import/export (~400 lines)
-│   └── ui_components.py             # Shared UI helpers (~300 lines)
-├── requirements.txt                 # Streamlit + dependencies
-├── README.md                        # Complete documentation
-└── .cursorrules                     # Development guidelines
+myownhero/
+├── streamlit_app.py                    # Complete single-file app (~900 lines)
+├── requirements.txt                    # Streamlit + Plotly dependencies
+├── README.md                           # Hero's journey documentation
+└── .cursorrules                        # Development guidelines (this file)
 ```
 
-## Core Development Rules
+## Single-File Architecture Rules
+
+### Core Structure (streamlit_app.py)
+- **Navigation**: Session state routing with `st.session_state.current_page`
+- **Pages**: Each pillar is a `render_*()` function
+- **Data**: Store user inputs in `st.session_state` for privacy
+- **Charts**: Use Plotly for all visualizations
+- **Forms**: Use Streamlit's built-in form components
+- **Styling**: Minimal custom CSS, rely on Streamlit's built-in theming
+
+### Function Naming Convention
+```python
+def render_landing_page():              # Main landing page
+def render_question_everything():       # Pillar 1: Question Everything
+def render_time_has_value():            # Pillar 2: Your Time Has Value
+def render_hero_seeks_understanding():  # Pillar 3: A Hero Seeks Understanding
+def render_same_rules_for_everyone():   # Pillar 4: Same Rules for Everyone
+def render_heros_triumph():             # Final revelation: The Hero's Triumph
+
+# Helper functions for each pillar
+def render_broken_promises():           # Pillar 1 helper
+def render_college_crisis():            # Specific crisis breakdown
+def render_housing_crisis():            # Specific crisis breakdown
+def render_family_crisis():             # Specific crisis breakdown
+
+def render_personal_time_calculator():  # Pillar 2 helper
+def render_purchasing_power_theft():    # Pillar 2 visualizations
+
+def render_cantillon_effect():          # Pillar 3 helper (time theft explanation)
+```
+
+### Session State Navigation Pattern
+```python
+# Initialize navigation
+if 'current_page' not in st.session_state:
+    st.session_state.current_page = 'landing'
+
+# Route to pages
+if st.session_state.current_page == 'landing':
+    render_landing_page()
+elif st.session_state.current_page == 'question_everything':
+    render_question_everything()
+elif st.session_state.current_page == 'time_has_value':
+    render_time_has_value()
+elif st.session_state.current_page == 'hero_seeks_understanding':
+    render_hero_seeks_understanding()
+elif st.session_state.current_page == 'same_rules_for_everyone':
+    render_same_rules_for_everyone()
+elif st.session_state.current_page == 'heros_triumph':
+    render_heros_triumph()
+
+# Navigation buttons
+if st.button("Next →", type="primary"):
+    st.session_state.current_page = 'next_page'
+    st.rerun()
+```
 
 ### Python Style Guidelines
 - **Functions**: Use `snake_case` for all functions and variables
-- **Classes**: Use `PascalCase` for class names
 - **Constants**: Use `UPPER_CASE` for constants
 - **Docstrings**: Simple one-line docstrings for functions
 - **Comments**: Only when the code isn't self-explanatory
 - **Line length**: Keep under 100 characters
+- **Imports**: Minimal - only `streamlit` and `plotly.graph_objects`
 
-### Session State Guidelines (Privacy-First)
-- **Privacy-First**: Each user gets isolated data in `st.session_state.user_data`
-- **Profile-Based**: New Stacker (0.1 BTC) and Old Stacker (1 BTC) defaults
-- **Three data categories**: profile data, ui state, and optional budgeting data
-- **Integer amounts**: Store satoshis as integers (no decimals)
-- **Text dates**: Store as 'YYYY-MM-DD' strings
-- **No persistence**: All data in session state only
-
-### Streamlit UI Guidelines
-- **Built-in components**: Use st.form, st.columns, st.tabs, st.sidebar
-- **Interactive widgets**: Date inputs, selectboxes, sliders with validation
-- **Data display**: st.dataframe, st.metric, st.plotly_chart
-- **Visual hierarchy**: Clean, Bitcoin-themed design with orange accents
-- **Status indicators**: Color-coded status (🟢 Good, ⚪ Neutral, 🔴 Warning)
-- **Enhanced form patterns**: Real-time validation with immediate feedback
-- **Bitcoin theming**: Use Bitcoin orange (#f7931a) for primary elements
-- **Layout**: Wide layout with responsive columns
-- **Navigation**: Sidebar with three pillars navigation
-- **Error handling**: Use st.error, st.warning, st.success for user feedback
-
-### Mobile-Responsive Guidelines
-- **Mobile detection**: Use `is_mobile_layout()` function checking `st.session_state.mobile_mode`
-- **Responsive columns**: `get_responsive_columns(desktop_cols)` for dynamic adjustment
-- **Mobile metrics**: `mobile_friendly_metrics()` for stacked metric display
-- **Mobile headers**: `mobile_responsive_header(text, level)` for appropriate sizing
-- **Touch-friendly buttons**: Full-width buttons with better spacing on mobile
-- **Mobile charts**: Stack vertically, horizontal legends below charts
-- **Single codebase**: Same functionality with conditional mobile-optimized presentation
-- **User control**: Sidebar toggle allows switching between desktop and mobile layouts
-
-### Bitcoin-Specific Rules
-- **Satoshis everywhere**: Always work in satoshis (integers)
-- **Sats-only standard**: Only accept satoshi input, no decimal Bitcoin
-- **Display formatting**: Show as "1,000,000 sats" with comma formatting
-- **No decimals**: Avoid floating point for Bitcoin amounts
-- **Input validation**: Ensure positive integers for amounts
-- **Bitcoin-only**: No other assets, cryptocurrencies, or yield products
-- **Self-custody focus**: Promote self-custody, discourage lending/yield
-
-### Landing Page Component (`landing_page.py`)
-- **Purpose**: Fast-loading showcase without typical Streamlit delays
-- **Key Functions**: Static previews, sample calculations, three pillars overview
-- **Content**: Pre-calculated examples, visual appeal, call-to-action
-- **Performance**: Minimal session state, cached calculations, instant load
-- **Sharing**: Optimized for social media previews and quick demos
-- **Design**: Hero section, three pillars preview, sample projections
-- **Navigation**: Clear path to full app experience
-
-### Three Pillars Architecture
-
-#### Pillar 1: Bitcoin Education (`bitcoin_education.py`)
-- **Purpose**: Prove "There Is No Second Best" 
-- **Key Functions**: Asset comparisons, monetary properties, self-custody benefits
-- **Content**: Why Bitcoin-only approach works, risk analysis
-- **Charts**: Bitcoin vs. stocks/gold/fiat over time
-
-#### Pillar 2: Purchasing Power (`purchasing_power.py`)
-- **Purpose**: Demonstrate "Life Gets Cheaper and Better"
-- **Key Functions**: Future purchasing power calculations, expense reduction
-- **Content**: Deflationary benefits of Bitcoin standard living
-- **Charts**: Expense reduction timeline, quality of life improvements
-
-#### Pillar 3: Freedom Timeline (`freedom_timeline.py`)
-- **Purpose**: Show "Escape the Rat Race" mathematics
-- **Key Functions**: Financial freedom timeline, escape velocity calculations
-- **Content**: Years until work-optional, post-freedom sustainability
-- **Charts**: Freedom timeline, stacking rate scenarios
-
-#### Unified Dashboard (`three_pillars_dashboard.py`)
-- **Purpose**: Integrate all three pillars into cohesive experience
-- **Key Functions**: Coordinated calculations, profile-based results
-- **Content**: Smooth transitions between concepts
-- **UI**: Main entry point for users
-
-### User Profile System (`user_profiles.py`)
-
-#### New Stacker Profile (Primary Target)
-- **Bitcoin Holdings**: 0.1 BTC (10,000,000 satoshis)
-- **Monthly DCA**: $500 equivalent in sats
-- **Monthly Expenses**: $4,000 equivalent in sats
-- **Demographics**: Age 30-35, early in Bitcoin journey
-- **Use Case**: Needs conviction building and education
-
-#### Old Stacker Profile (Secondary Target)
-- **Bitcoin Holdings**: 1 BTC (100,000,000 satoshis)
-- **Monthly DCA**: $1,000 equivalent in sats
-- **Monthly Expenses**: $6,000 equivalent in sats
-- **Demographics**: Age 35-40, established Bitcoiner
-- **Use Case**: Wants optimization and advanced features
-
-### Data Management (`data_management.py`)
-- **Session State**: All data in `st.session_state` for privacy
-- **Export/Import**: JSON file-based data portability
-- **Validation**: Imported data validation and error handling
-- **Privacy**: No server-side storage, user controls all data
-- **Cross-device**: Export/import enables device portability
-
-### Bitcoin Models & Calculations
+### Session State Data Patterns
 ```python
-BITCOIN_MODELS = {
-    'conservative': {
-        'cycle_years': 4,
-        'growth_rates': [0.5, 1.5, 2.0, 0.8],  # Per year in cycle
-        'floor_multiplier': 0.15
-    },
-    'optimistic': {
-        'cycle_years': 4,
-        'growth_rates': [1.0, 2.0, 3.0, 1.0],
-        'floor_multiplier': 0.2
-    }
-}
+# User input storage (privacy-first)
+if 'user_data' not in st.session_state:
+    st.session_state.user_data = {}
+
+# Store user inputs
+st.session_state.user_data['hourly_wage'] = wage_input
+st.session_state.user_data['work_hours'] = hours_input
+
+# Integer amounts (no decimals for clarity)
+wage = int(st.number_input("Hourly wage", min_value=1, max_value=200, value=25))
+
+# Time-based calculations
+hours_per_week = 40
+weeks_per_year = 52
+annual_hours = hours_per_week * weeks_per_year
 ```
 
-### Core Calculation Functions
-- `calculate_bitcoin_future_value()` - Price projections using cycle models
-- `calculate_net_worth_projection()` - User's net worth over time
-- `calculate_purchasing_power_improvement()` - Expense reduction calculations
-- `calculate_financial_freedom_date()` - When holdings cover annual expenses
-- `calculate_escape_velocity()` - Minimum stacking rate for freedom
+### Narrative Guidelines (The Sly Approach)
+- **Start with empowerment**: Personal agency and hero's journey
+- **Question authority**: Challenge mainstream financial narratives
+- **Reveal deception**: Show how traditional advice keeps people trapped
+- **Build curiosity**: Make them want to discover the solution
+- **Gentle revelation**: Bitcoin emerges naturally as the logical answer
+- **No Bitcoin branding**: Until the final revelation stage
+- **Focus on time theft**: Show how the system systematically steals time and transfers wealth
 
-### Simplicity Rules
-❌ **NO** complex state management beyond st.session_state
-❌ **NO** custom CSS or complex styling (use Bitcoin orange accents only)
+### The Five Pillars (Single-File Implementation)
+
+#### Pillar 1: Question Everything (render_question_everything)
+- **Purpose**: Challenge societal scripts about work, money, success
+- **Implementation**: Show three broken promises (college, housing, family)
+- **Charts**: Hours of work required then vs now
+- **Message**: "The rules changed to make success impossible"
+- **Bridge**: "If the money is broken, how much of my life am I trading away?"
+- **Status**: ✅ COMPLETE
+
+#### Pillar 2: Your Time Has Value (render_time_has_value)
+- **Purpose**: Reveal how purchasing power is systematically stolen
+- **Implementation**: Personal time-value calculator and purchasing power charts
+- **Charts**: Time-cost of purchases, purchasing power decline over decades
+- **Message**: "Your most precious resource - time - is being stolen"
+- **Bridge**: "A hero seeks to understand who benefits from this theft"
+- **Status**: ✅ COMPLETE
+
+#### Pillar 3: A Hero Seeks Understanding (render_hero_seeks_understanding)
+- **Purpose**: Show that time theft is systematic and designed (Cantillon Effect)
+- **Implementation**: Explanation of who benefits from money printing and wealth transfer
+- **Charts**: Wealth transfer visualization showing 92% decline for bottom 50%
+- **Message**: "This isn't an accident. This is theft by design."
+- **Bridge**: "What if there was money with the same rules for everyone?"
+- **Status**: ✅ COMPLETE
+
+#### Pillar 4: Same Rules for Everyone (render_same_rules_for_everyone)
+- **Purpose**: Show the power of hard money through savings comparison
+- **Implementation**: Pie charts comparing fiat vs hard money expenses over 10 years
+- **Charts**: Side-by-side pie charts showing 95.9% savings advantage
+- **Message**: "Hard money makes expenses cheaper over time instead of more expensive"
+- **Bridge**: "Ready to discover what this revolutionary money is?"
+- **Status**: ✅ COMPLETE
+
+#### Pillar 5: The Hero's Triumph (render_heros_triumph)
+- **Purpose**: Reveal Bitcoin as the logical solution to everything discussed
+- **Implementation**: 2024 vs 202X comparison showing return to middle-class life
+- **Charts**: Bar chart showing 13.1 years vs 4.2 years for same lifestyle
+- **Message**: "Bitcoin restores the life your grandparents had"
+- **UI**: Dramatic reveal that reframes everything they've learned
+- **Status**: ✅ COMPLETE
+
+### Streamlit UI Patterns
+```python
+# Page headers
+st.title("Hero's Journey Title")
+st.markdown("### Subtitle with impact")
+st.markdown("---")  # Visual separator
+
+# Two-column layouts
+col1, col2 = st.columns(2)
+with col1:
+    st.metric("1985", "Value", "Description")
+with col2:
+    st.metric("2022", "Value", "Shocking comparison")
+
+# Charts with Plotly
+fig = go.Figure()
+fig.add_trace(go.Bar(
+    name='Chart Title',
+    x=['Category 1', 'Category 2'],
+    y=[value1, value2],
+    marker_color=['lightblue', 'darkblue'],
+    text=[f'{value1:,.0f}', f'{value2:,.0f}'],
+    textposition='auto',
+))
+fig.update_layout(
+    title='Impactful Chart Title',
+    yaxis_title='Y-Axis Label',
+    height=350,
+    showlegend=False
+)
+st.plotly_chart(fig, use_container_width=True)
+
+# Navigation buttons
+col1, col2 = st.columns(2)
+with col1:
+    if st.button("← Back", type="secondary"):
+        st.session_state.current_page = 'previous_page'
+        st.rerun()
+with col2:
+    if st.button("Next →", type="primary"):
+        st.session_state.current_page = 'next_page'
+        st.rerun()
+```
+
+### Sly Language Patterns
+```python
+# Instead of "Bitcoin price" → "Freedom unit value"
+# Instead of "DCA into Bitcoin" → "Regular freedom accumulation"
+# Instead of "Bitcoin holdings" → "Independence reserves"
+# Instead of "Fiat currency" → "Institutional control tokens"
+# Instead of "Bitcoin standard" → "Hard money standard"
+```
+
+### Hero's Journey Language Patterns
+```python
+# Hero recognition patterns
+"A hero doesn't accept broken systems"
+"Heroes recognize when they're given an impossible mission"
+"A hero questions why the task became impossible"
+"Heroes don't blame themselves for a rigged game"
+"A hero values their time too much to trade it for broken promises"
+
+# Empowerment language
+"Take control of your own destiny"
+"Question everything you've been told"
+"Your time has real value"
+"Become the hero of your own life"
+```
+
+### Data Visualization Rules
+- **Always show time-cost**: Convert everything to hours/days/years of work
+- **Then vs Now comparisons**: Show how the rules changed
+- **Use color psychology**: Light colors for "past/possible", dark colors for "current/impossible"
+- **Impactful metrics**: Show the shocking reality in st.metric format
+- **Hero messaging**: Frame data as empowerment, not victimization
+
+### Error Handling & Validation
+```python
+# Input validation
+if wage_input <= 0:
+    st.error("A hero's time has value - enter a wage above zero")
+    return
+
+# Session state safety
+if 'user_data' not in st.session_state:
+    st.session_state.user_data = {}
+
+# Graceful degradation
+try:
+    calculation_result = complex_calculation()
+except:
+    st.warning("Calculation temporarily unavailable - a hero adapts")
+    calculation_result = fallback_value
+```
+
+### Simplicity Rules (What We Actually Follow)
+❌ **NO** separate modules or complex file structure
+❌ **NO** custom CSS beyond basic styling
 ❌ **NO** external APIs or integrations
 ❌ **NO** authentication systems or user accounts
 ❌ **NO** databases or persistent storage
-❌ **NO** async/await unless truly needed
-❌ **NO** complex JavaScript or custom components
-❌ **NO** other assets or yield products promotion
+❌ **NO** direct Bitcoin messaging until revelation stage
+❌ **NO** financial advice language or terminology
 
-✅ **YES** to simple Streamlit functions and built-in components
+✅ **YES** to single-file simplicity
 ✅ **YES** to session state for data storage and privacy
 ✅ **YES** to Plotly for charts (built-in integration)
-✅ **YES** to pandas DataFrames for data display
+✅ **YES** to built-in Streamlit components
 ✅ **YES** to responsive layouts with st.columns
-✅ **YES** to Bitcoin-only narrative and self-custody advocacy
-✅ **YES** to modular architecture with clear separation of concerns
-
-### Advanced Features (Optional)
-- **Envelope Budgeting**: Full budgeting system from existing Bitcoin Budget app
-- **Account Management**: Tracked/untracked Bitcoin accounts
-- **Transaction Tracking**: Income/expense tracking with categories
-- **Budget Allocation**: Category-based budgeting with visual indicators
-- **Reports**: Advanced analytics and Bitcoin power law projections
-
-### Error Handling
-- **User errors**: Show st.error with helpful Bitcoin-themed messages
-- **Session state errors**: Catch and initialize missing data gracefully
-- **Input validation**: Check before session state operations
-- **Form validation**: Use Streamlit form submission patterns
-- **Graceful degradation**: App shouldn't crash on bad input
-- **Profile validation**: Ensure profile data integrity
-
-### Performance Guidelines
-- **Personal use app**: Performance is not critical for individual users
-- **Session state is fast**: In-memory operations are instant
-- **Streamlit handles caching**: Use @st.cache_data for expensive calculations
-- **Keep operations simple**: Basic list/dict operations
-- **Pandas for display**: DataFrame operations are efficient enough
-
-### Bitcoin Display Formats
-```python
-def format_sats(satoshis):
-    """Format satoshis for display"""
-    return f"{satoshis:,} sats"
-
-def format_btc(satoshis):
-    """Format as BTC"""
-    btc = satoshis / 100_000_000
-    return f"{btc:.8f} BTC"
-
-def parse_amount_input(text):
-    """Parse user input to satoshis"""
-    # Handle "1000000", "1,000,000", etc.
-```
-
-### Landing Page Guidelines
-- **Fast First Impression**: Load instantly without complex calculations
-- **Pre-calculated Examples**: Show sample results for New/Old Stacker profiles
-- **Visual Appeal**: Bitcoin-themed design with compelling graphics
-- **Clear Value Proposition**: "Your life gets better on a Bitcoin standard"
-- **Three Pillars Preview**: Quick overview of education, purchasing power, freedom
-- **Call-to-Action**: Clear path to try the full calculator
-- **Social Sharing**: Optimized for previews on Twitter, LinkedIn, etc.
-- **Mobile-First**: Looks great on phones where most sharing happens
-- **No Loading Delays**: Avoid complex state initialization on landing
-
-### Development Workflow
-1. **Start with landing page**: Fast-loading showcase and first impression
-2. **Initialize session state**: User data structure for full app
-3. **Build three pillars**: Education, purchasing power, freedom timeline
-4. **Create unified dashboard**: Integrate all three pillars
-5. **Add user profiles**: New/Old Stacker defaults with customization
-6. **Build Streamlit UI**: Responsive design with Bitcoin theming
-7. **Add advanced features**: Optional envelope budgeting for power users
-8. **Test in browser**: Run `streamlit run streamlit_app.py` locally
-9. **Deploy to web**: Auto-deploy to Streamlit Cloud via GitHub
+✅ **YES** to empowerment language and hero's journey narrative
+✅ **YES** to clear function separation by pillar
 
 ### Success Criteria
-- ✅ **Immediate value**: Users see Bitcoin life improvement projections instantly
-- ✅ **Mobile friendly**: Responsive design works on phones/tablets
-- ✅ **Educational impact**: Users learn why Bitcoin-only approach works
-- ✅ **Emotional engagement**: Users feel excited about their Bitcoin future
+- ✅ **Immediate engagement**: Users hooked by hero's journey question
+- ✅ **Narrative progression**: Smooth flow from questioning to solution
+- ✅ **Emotional resonance**: Users feel empowered, not lectured
+- ✅ **Logical revelation**: Bitcoin conclusion feels inevitable and obvious
+- ✅ **Post-revelation clarity**: Everything clicks into place
 - ✅ **Privacy maintained**: Session-based isolation, no data collection
-- ✅ **Narrative impact**: Counter "Bitcoin isn't enough" FUD effectively
-- ✅ **Modular architecture**: Clean separation of concerns across modules
-- ✅ **Bitcoin-only focus**: No promotion of other assets or yield strategies
+- ✅ **Single-file simplicity**: Easy to understand, deploy, and maintain
 
-### Anti-Patterns to Avoid
-❌ **Setup friction before value**: No complex onboarding before benefits
-❌ **Budgeting-first experience**: Three pillars come first, budgeting is advanced
-❌ **Feature complexity**: Simple, focused experience over feature bloat
-❌ **Multi-step funnels**: Immediate value demonstration
-❌ **"Bitcoin plus X" messaging**: Bitcoin-only narrative
-❌ **Yield promotion**: Self-custody advocacy only
-❌ **Fear-based messaging**: Positive, aspirational tone
-❌ **Over-engineering**: Keep it simple and maintainable
+### Development Workflow (Current Implementation)
+1. **Landing page**: "Am I the hero of my own life?" hook ✅ COMPLETE
+2. **Pillar 1**: Challenge mainstream financial advice ✅ COMPLETE
+3. **Pillar 2**: Personal time-value calculations ✅ COMPLETE
+4. **Pillar 3**: Show systematic time theft (Cantillon Effect) ✅ COMPLETE
+5. **Pillar 4**: Hard money savings advantage ✅ COMPLETE
+6. **Pillar 5**: Bitcoin revelation and hero's triumph ✅ COMPLETE
+7. **Journey completion**: Full Bitcoin understanding through empowerment lens ✅ COMPLETE
 
-Remember: **We're not building a budgeting app - we're building a Bitcoin life improvement calculator that proves mathematically why life gets better on a Bitcoin standard. The three pillars (education, purchasing power, freedom timeline) are the core experience, with optional advanced budgeting for power users who want it.** 
+### The Trojan Horse Strategy
+Remember: **We're building a Trojan horse. The beautiful wooden horse is personal empowerment and questioning authority. The hidden warriors inside are Bitcoin education and monetary sovereignty. The user invites the horse inside their mental city walls because it appears to be a gift of empowerment, not a Bitcoin lecture.**
+
+Keep it simple. Keep it empowering. Keep it effective. 
