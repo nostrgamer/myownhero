@@ -745,7 +745,7 @@ def render_same_rules_for_everyone():
     # Calculate and emphasize the percentage improvement
     savings_percentage = (hard_money_savings / future_fiat_expense) * 100
     st.markdown(f"""
-    ### 🚀 Your Life Just Got {savings_percentage:.1f}% Better!
+    ###Your Life Just Got {savings_percentage:.1f}% Better!
     
     **On a hard money standard, you save {savings_percentage:.1f}% of what you would have spent on the fiat standard.**
     
@@ -774,121 +774,74 @@ def render_same_rules_for_everyone():
             st.rerun()
 
 def render_heros_triumph():
-    """Render the final page: The Hero's Triumph – The Bitcoin Revelation"""
-    st.title("The Hero's Triumph")
-    st.markdown("### The Solution Hidden in Plain Sight")
+    """Render the final page: The Hero's Next Step – Call to Action"""
+    st.title("The Hero's Next Step")
+    st.markdown("### Your Journey Toward Monetary Sovereignty Begins")
     st.markdown("---")
 
     st.markdown("""
-    You've probably heard of Bitcoin. Maybe you've dismissed it as a scam, bad for the environment, too complicated, or just not for you.
+    **Congratulations, Hero!**
     
-    But as you've seen, the real scam is the system you were born into: a system that steals your time, your savings, and your future.   
-
+    You've discovered the truth. You've seen the 95.9% advantage of hard money.
+    
+    **A hero doesn't just understand the problem. A hero takes action.**
     """)
 
     st.markdown("---")
-    st.markdown("## The Path Back to the Good Life")
     
-    # Two-column comparison layout
-    col1, col2 = st.columns(2)
+    # The revelation
+    st.markdown("""
+    ## The Hard Money Revolution
     
-    with col1:
-        st.markdown("### 🔴 2024: The Raw Deal")
-        
-        st.markdown("**Total Timeline**")
-        st.markdown("<div style='font-size:3rem; color:#ef4444; font-weight:bold;'>13.1 years</div>", unsafe_allow_html=True)
-        st.markdown("<span style='color:#ef4444;'>↑ College → house → daycare costs</span>", unsafe_allow_html=True)
+    Hard money has existed over the ages, first as silver, then gold, but in a modern era new hard money has emerged superior to all others.
     
-    with col2:
-        st.markdown("### 🟠 202X: The Bitcoin Deal")
-        
-        st.markdown("**Total Timeline**")
-        st.markdown("<div style='font-size:3rem; color:#f7931a; font-weight:bold;'>4.2 years</div>", unsafe_allow_html=True)
-        st.markdown("<span style='color:#f7931a;'>↑ High school → house → family</span>", unsafe_allow_html=True)
+    The hard money with the same rules for everyone that is the most scarce in history?
+    """)
     
-    st.markdown("---")
-    
-    # Comparison bar chart
-    
-    import plotly.graph_objects as go
-    
-    fig = go.Figure()
-    
-    # 2024 Raw Deal bar
-    fig.add_trace(go.Bar(
-        name='2024 (Unlimited Money)',
-        x=['Years of Household Income Required'],
-        y=[13.1],
-        marker_color='#ef4444',
-        text=['13.1 years'],
-        textposition='auto',
-        width=0.4,
-        hovertemplate='<b>2024 Raw Deal</b><br>13.1 years of household income<extra></extra>'
-    ))
-    
-    # Bitcoin Deal bar
-    fig.add_trace(go.Bar(
-        name='202X (Bitcoin)',
-        x=['Years of Household Income Required'],
-        y=[4.2],
-        marker_color='#f7931a',
-        text=['4.2 years'],
-        textposition='auto',
-        width=0.4,
-        hovertemplate='<b>202X Bitcoin Deal</b><br>4.2 years of household income<extra></extra>'
-    ))
-    
-    fig.update_layout(
-        title='Return of the Middle Class',
-        yaxis_title='Years of Household Income Required',
-        height=400,
-        showlegend=True,
-        barmode='group',
-        xaxis=dict(showticklabels=False),
-        plot_bgcolor="rgba(0,0,0,0)",
-    )
-    
-    st.plotly_chart(fig, use_container_width=True)
-    
-    # Impact metrics
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        st.metric(
-            "⏰ Time Saved", 
-            "8.9 years",
-            "68% reduction"
-        )
-    
-    with col2:
-        st.metric(
-            "👨‍👩‍👧‍👦 Family Impact", 
-            "2+ Kids",
-            "Return of children"
-        )
-    
-    with col3:
-        st.metric(
-            "🎓 Education", 
-            "Optional",
-            "Skills > credentials"
-        )
+    # Make the Bitcoin reveal REALLY stand out
+    st.markdown("""
+    <div style='text-align: center; padding: 2rem; background: linear-gradient(135deg, #f7931a 0%, #ff6b35 100%); border-radius: 15px; margin: 2rem 0; border: 3px solid #f7931a;'>
+        <h2 style='color: white; margin: 0; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);'>It's Called Bitcoin.</h2>
+    </div>
+    """, unsafe_allow_html=True)
     
     st.markdown("""
-    ### 🚀 The Bitcoin Advantage: A Return to the Good Life
+    ### The Answer
     
-    **Bitcoin doesn't just preserve your wealth—it restores the life your grandparents had:**
+    You asked: *"Am I the hero of my own life?"*
     
-    - **One income supports a family** (Bitcoin appreciation outpaces expenses)
-    - **College becomes optional** (skills matter more than credentials)
-    - **Houses become affordable again** (2x income instead of 7x)
-    - **Children can have a parent at home** (no daycare industrial complex)
-    - **The good life takes 4 years, not 13** (68% time savings)
+    **The answer is yes.** And heroes take action.
     
-    **This isn't just about money. This is about reclaiming human dignity and family life.**
+    **Welcome to the Bitcoin revolution, Hero. Are you ready to Learn More?**
     """)
     
-    # Navigation - Back button only
+    st.markdown("---")   
+  
+    # Large prominent button - direct link to Bitcoin.org
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.markdown("""
+        <div style='text-align: center;'>
+            <a href='https://bitcoin.org/en/' target='_blank' style='text-decoration: none;'>
+                <button style='
+                    background: linear-gradient(135deg, #f7931a 0%, #ff6b35 100%);
+                    color: white;
+                    border: none;
+                    padding: 1rem 2rem;
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    width: 100%;
+                    transition: transform 0.2s ease;
+                ' onmouseover='this.style.transform="scale(1.05)"' onmouseout='this.style.transform="scale(1)"'>
+                    Start Your Bitcoin Education →
+                </button>
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Navigation - moved to bottom
     st.markdown("---")
     if st.button("← Back to Same Rules", type="secondary"):
         st.session_state.current_page = 'same_rules_for_everyone'
